@@ -22,3 +22,11 @@ func _process(delta):
 	position += velocity * delta
 	position.x = clamp(position.x, 20, screensize.x -20)
 	position.y = clamp(position.y, 20, screensize.y -20)
+	determine_animation()
+
+func determine_animation():
+	if velocity.length() > 0:
+		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.flip_h = velocity.x < 0
+	else:
+		$AnimatedSprite.animation = "idle"
