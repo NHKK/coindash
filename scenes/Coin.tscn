@@ -22,7 +22,6 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 20.0
 
 [node name="Coin" type="Area2D" groups=[
 "coins",
@@ -30,10 +29,10 @@ radius = 20.0
 script = ExtResource( 12 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 8
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
