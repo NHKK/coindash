@@ -26,25 +26,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="Container" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
-margin_left = 10.0
+margin_left = 5.0
 margin_top = 10.0
-margin_right = 10.0
+margin_right = -1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_right = 474.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
 text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TimeLabel" type="Label" parent="MarginContainer"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_right = 474.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0

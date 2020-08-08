@@ -14,7 +14,6 @@ func _ready():
 	screensize = get_viewport().get_visible_rect().size
 	$Player.screensize = screensize
 	$Player.hide()
-	new_game()
 
 func new_game():
 	playing = true
@@ -24,6 +23,8 @@ func new_game():
 	$Player.start($PlayerStart.position)
 	$Player.show()
 	$GameTimer.start()
+	$HUD.update_score(score)
+	$HUD.update_timer(time_left)
 	spawn_coins()
 
 func spawn_coins():
@@ -41,3 +42,24 @@ func next_stage():
 		level += 1
 		time_left += 5
 		spawn_coins()
+
+func _on_GameTimer_timeout():
+	time_left -= 1
+	$HUD.update_timer(time_left)
+	if time_left <= 0:
+		game_over()
+
+func _on_Player_pickup():
+	score += 1
+	$HUD.update_score(score)
+
+func _on_Player_hurt():
+	game_over()
+
+func game_over():
+	playing = false
+	$GameTimer.stop()
+	for coin in $CoinContainer.get_children():
+		coin.queue_free()
+	$HUD.show_game_over()
+	$Player.die()
